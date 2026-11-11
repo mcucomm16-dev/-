@@ -229,6 +229,69 @@ textarea { min-height: 120px; resize: vertical; }
   .nav .btn { min-width: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .progress > i { transition: none; } }
+
+/* ---- Phone refinements: larger text, intro first and character cards below. Desktop unchanged. ---- */
+@media (max-width: 819px) {
+  .home { grid-template-columns: 1fr; }
+  .home-text { order: 1; }
+  .home-art { order: 2; }
+}
+@media (max-width: 520px) {
+  body { font-size: 17px; line-height: 1.75; }
+  .eyebrow { font-size: 13px; }
+  .lead { font-size: 18px; }
+  .chip { font-size: 14px; }
+  .btn { font-size: 18px; }
+  .btn.ghost, .nav .btn.ghost { font-size: 16px; }
+  .note, .qfoot, .status, .disclaimer, .share-msg, .footer { font-size: 14px; }
+  .progress-row { font-size: 15px; }
+  .part { font-size: 13px; }
+  .qtitle { font-size: 22px; }
+  .qhint { font-size: 15px; }
+  .opt .text { font-size: 17px; }
+  .persona-name { font-size: 34px; }
+  .persona-line { font-size: 18px; }
+  .persona-sub { font-size: 16px; }
+  .tab { font-size: 16px; }
+  .block-label { font-size: 13px; }
+  .block-title { font-size: 24px; }
+  .block-title.big { font-size: 28px; }
+  .bench-box .block-title { font-size: 22px; }
+  .mini small { font-size: 13px; }
+  .mini b { font-size: 19px; }
+  .mini p { font-size: 15px; }
+  .quote { font-size: 17px; }
+  .desc-box small { font-size: 14px; }
+  .desc-box p { font-size: 17px; }
+  .desc-list dt { font-size: 16px; }
+  .desc-list dd { font-size: 16px; }
+  .action-box small { font-size: 14px; }
+  .action-box p { font-size: 19px; }
+  .next-box h3 { font-size: 21px; }
+  .next-box p { font-size: 16px; }
+  .bench-type { font-size: 16px; }
+  .bench-hook { font-size: 20px; }
+  .bench-card h4 { font-size: 18px; }
+  .bench-card p { font-size: 16px; }
+  .bench-card .bench-sub { font-size: 14px; }
+  .bench-list { font-size: 16px; }
+  .bar-row .bn { font-size: 15px; }
+  .bar-row .bc { font-size: 14px; }
+  .dark-card h3 { font-size: 28px; }
+  .dark-card p { font-size: 16px; }
+  .dark-card .price-tag { font-size: 32px; }
+  .dark-card .price-note { font-size: 14px; }
+  .consent { font-size: 14px; }
+  .field label { font-size: 15px; }
+  input, select, textarea { font-size: 16px; }
+  .mini-title { font-size: 20px; }
+  .ticks li { font-size: 17px; }
+  .mini-text { font-size: 16px; }
+  .tiers { font-size: 14px; }
+  .pv b { font-size: 16px; }
+  .pv p { font-size: 14px; }
+  .step p { font-size: 15px; }
+}
 </style>
 
 <main>
@@ -240,7 +303,7 @@ textarea { min-height: 120px; resize: vertical; }
   <!-- Home -->
   <section id="home">
     <div class="home">
-      <div>
+      <div class="home-text">
         <span class="eyebrow">13 QUESTIONS · ONE UNIQUE YOU</span>
         <h1 class="hero-title">你的專業，<br><em>天生適合</em><br>怎麼被看見？</h1>
         <p class="lead">不是每個職人都要變網紅。用 <strong>13 道題目</strong>，找出你的職人特質，探索適合你的品牌風格與商業方向。</p>
@@ -254,7 +317,7 @@ textarea { min-height: 120px; resize: vertical; }
           <p class="note">每題選一個最接近你的答案，沒有對錯。</p>
         </div>
       </div>
-      <div>
+      <div class="home-art">
         <div class="preview" aria-label="六種職人人格">
           <div class="pv"><span class="g img" data-cell="A" aria-hidden="true"></span><b>專業守護者</b><p>你的專業，就是別人的安心感。</p></div>
           <div class="pv"><span class="g img" data-cell="B" aria-hidden="true"></span><b>知識魔法師</b><p>你把別人聽不懂的事，變成人人都懂。</p></div>
@@ -342,7 +405,7 @@ textarea { min-height: 120px; resize: vertical; }
             <h4>💡 關鍵差距與經營留意</h4>
             <p class="bench-sub">經營時要留意</p>
             <p id="bNote"></p>
-            <p class="bench-sub">你的現況卡點／顧問對接</p>
+            <p class="bench-sub">你的現況卡點／顧問對接鉤子</p>
             <p id="bGap"></p>
           </div>
         </div>
