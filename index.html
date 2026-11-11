@@ -1,0 +1,1038 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>職人品牌潛力研究所</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<style>
+/* Layout: airy off-white canvas, ink-teal anchors, mint and tan accents. Single light theme, set explicitly. */
+:root {
+  --paper: #f8f5f6;
+  --surface: #fffdfd;
+  --surface-2: #f1ecee;
+  --ink: #3f3a3c;
+  --ink-2: #5b5356;
+  --muted: #766e72;
+  --line: #e6dfe2;
+  --mint: #d48ca4;
+  --mint-deep: #a4536f;
+  --tan: #f5e1e8;
+  --tan-soft: #fbf4f6;
+  --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.7;
+  background: var(--paper);
+  color: var(--ink);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 18px 40px;
+  overflow-x: hidden;
+}
+main { max-width: 1040px; margin: 0 auto; }
+h1, h2, h3 { text-wrap: balance; margin: 0; font-weight: 900; }
+p { margin: 0; text-wrap: pretty; }
+button, input, select, textarea { font-family: inherit; }
+.hidden-screen { display: none !important; }
+.eyebrow { font-size: 12px; letter-spacing: .14em; color: var(--mint-deep); font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+.eyebrow::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 4px rgba(212,140,164,.30); }
+.block-label { font-size: 12px; letter-spacing: .14em; color: var(--mint-deep); font-weight: 700; }
+
+/* Header */
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-width: 0; }
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 15px; min-width: 0; }
+.brand-mark { width: 40px; height: 40px; border-radius: 12px; background: var(--ink); color: var(--mint); display: grid; place-items: center; font-size: 20px; flex: none; }
+.brand span { min-width: 0; overflow-wrap: anywhere; }
+.top-meta { font-size: 11px; letter-spacing: .12em; color: var(--mint-deep); font-weight: 700; text-align: right; white-space: nowrap; }
+.top-meta em { font-style: normal; color: var(--muted); font-weight: 400; margin-left: 8px; letter-spacing: .04em; }
+
+/* Home */
+.home { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 36px; align-items: center; }
+@media (min-width: 820px) { .home { grid-template-columns: 1.05fr .95fr; gap: 48px; margin-top: 56px; } }
+.hero-title { font-size: 44px; line-height: 1.22; margin-top: 18px; letter-spacing: -.01em; }
+.hero-title em { font-style: normal; color: var(--mint-deep); }
+.lead { margin-top: 18px; color: var(--muted); font-size: 16px; max-width: 30em; }
+.lead strong { color: var(--ink); font-weight: 700; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.chip { font-size: 13px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; color: var(--ink-2); }
+.cta-wrap { max-width: 360px; margin-top: 26px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; font-weight: 700; font-size: 16px;
+  padding: 16px 22px; border-radius: 999px; border: 0; cursor: pointer;
+  background: var(--ink); color: #fff;
+}
+.btn:disabled { background: #cbc2c6; cursor: not-allowed; }
+.btn.ghost { background: var(--surface); color: var(--ink); border: 1px solid var(--line); font-weight: 500; font-size: 14px; padding: 12px 16px; width: auto; }
+.btn.mint { background: var(--mint); color: var(--ink); }
+.btn:focus-visible, .opt:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, .tab:focus-visible {
+  outline: 3px solid var(--mint); outline-offset: 2px;
+}
+.note { font-size: 12px; color: var(--muted); margin-top: 12px; }
+
+/* Persona preview grid on home */
+.preview { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pv { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 14px 14px; min-width: 0; }
+.pv .g.img { display: block; width: 64px; height: 64px; border-radius: 14px; background-color: var(--surface-2); background-size: contain; background-position: center; background-repeat: no-repeat; font-size: 0; }
+.pv .g { font-size: 22px; color: var(--mint-deep); line-height: 1; }
+.pv b { display: block; font-size: 14px; margin-top: 8px; color: var(--ink-2); }
+.pv p { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+
+/* Quiz */
+.narrow { max-width: 680px; margin: 0 auto; }
+.progress-row { display: flex; justify-content: space-between; align-items: center; margin-top: 26px; font-size: 13px; font-weight: 700; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.progress { height: 10px; background: #ece4e8; border-radius: 999px; overflow: hidden; margin-top: 12px; }
+.progress > i { display: block; height: 100%; width: 0; background: var(--mint); border-radius: 999px; transition: width .35s; }
+.card {
+  background: var(--surface); border-radius: 28px; padding: 30px 26px; margin-top: 18px;
+  box-shadow: 0 30px 50px -36px rgba(63,58,60,.22); border: 1px solid #ede6ea;
+}
+.part { font-size: 12px; letter-spacing: .14em; color: var(--mint-deep); font-weight: 700; }
+.qtitle { font-size: 24px; line-height: 1.45; margin-top: 10px; }
+.qhint { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.opts { display: grid; gap: 12px; margin-top: 22px; }
+.opt {
+  display: grid; grid-template-columns: 40px 1fr 28px; align-items: center; gap: 12px;
+  font: inherit; text-align: left; color: var(--ink); cursor: pointer;
+  background: var(--surface); border: 1.5px solid var(--line); border-radius: 18px;
+  padding: 12px 16px; min-width: 0;
+}
+.opt:hover:not(:disabled) { border-color: #d8cdd2; }
+.opt .letter {
+  width: 40px; height: 40px; border-radius: 12px; background: var(--surface-2);
+  display: grid; place-items: center; font-weight: 700; color: var(--ink-2);
+}
+.opt .text { font-weight: 700; font-size: 15px; min-width: 0; overflow-wrap: anywhere; }
+.opt .radio {
+  width: 24px; height: 24px; border-radius: 50%; border: 2px solid #cdc2c7; background: var(--surface);
+  display: grid; place-items: center; font-size: 12px; font-weight: 700; color: var(--ink); justify-self: end;
+}
+.opt[aria-pressed="true"] { border-color: var(--ink); background: var(--surface-2); }
+.opt[aria-pressed="true"] .letter { background: var(--mint); color: var(--ink); }
+.opt[aria-pressed="true"] .radio { background: var(--mint); border-color: var(--mint); color: var(--ink); }
+.nav { display: grid; grid-template-columns: auto 1fr; gap: 12px; margin-top: 24px; }
+.nav .btn { width: auto; min-width: 150px; }
+.nav .btn.ghost { padding: 14px 20px; font-size: 15px; }
+.qfoot { text-align: center; font-size: 12px; color: var(--muted); margin-top: 16px; }
+.field { display: grid; gap: 6px; margin-top: 14px; }
+.field label { font-size: 13px; color: var(--muted); }
+textarea, select, input {
+  color: var(--ink); background: var(--surface); border: 1.5px solid var(--line);
+  border-radius: 14px; padding: 11px 14px; width: 100%; min-width: 0; font-size: 15px;
+}
+textarea { min-height: 120px; resize: vertical; }
+
+/* Result */
+.result-head { text-align: center; margin-top: 30px; }
+.result-head .eyebrow { justify-content: center; }
+.sym-tile { width: 132px; height: 132px; border-radius: 44px; background: var(--surface-2); display: grid; place-items: center; margin: 22px auto 0; font-size: 56px; color: var(--mint-deep); }
+.persona-name { font-size: 40px; line-height: 1.25; margin-top: 22px; letter-spacing: -.01em; }
+.persona-line { color: var(--muted); margin-top: 10px; font-size: 16px; }
+.persona-sub { color: var(--mint-deep); font-weight: 700; font-size: 14px; margin-top: 10px; }
+.tabs { display: flex; gap: 6px; background: #ece4e8; border-radius: 999px; padding: 5px; margin: 26px auto 0; max-width: 520px; }
+.tab { flex: 1; font-size: 14px; background: transparent; color: var(--muted); border: 0; border-radius: 999px; padding: 10px 8px; cursor: pointer; min-width: 0; font-weight: 500; }
+.tab[aria-selected="true"] { background: var(--surface); color: var(--ink); font-weight: 700; box-shadow: 0 6px 14px -10px rgba(63,58,60,.35); }
+.block-title { font-size: 22px; margin-top: 6px; }
+.block-title.big { font-size: 26px; }
+.bars { display: grid; gap: 14px; margin-top: 18px; }
+.bar-row { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; font-size: 14px; min-width: 0; }
+.bar-row .bn { font-weight: 700; color: var(--ink-2); min-width: 0; display: flex; align-items: center; gap: 10px; }
+.bar-row .bg.img { width: 36px; height: 36px; border-radius: 12px; background-color: var(--surface-2); background-size: contain; background-position: center; background-repeat: no-repeat; font-size: 0; flex: none; }
+.bar-row .bg { font-size: 16px; color: var(--mint-deep); width: 26px; text-align: center; flex: none; }
+.bar-row .bc { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 13px; }
+.bar-track { grid-column: 1 / -1; height: 10px; background: #ece4e8; border-radius: 999px; overflow: hidden; }
+.bar-track > i { display: block; height: 100%; background: var(--mint); border-radius: 999px; }
+.desc-box { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 22px 24px; margin-top: 18px; }
+.desc-box { text-align: left; }
+.desc-box small { display: block; font-size: 13px; color: var(--mint-deep); font-weight: 700; }
+.desc-box p { font-size: 15px; color: var(--ink-2); margin-top: 8px; line-height: 1.85; }
+.desc-list { margin: 16px 0 0; display: grid; gap: 10px; }
+.desc-list dt { font-weight: 700; color: var(--ink-2); font-size: 14px; }
+.desc-list dd { margin: 2px 0 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
+.persona-sheet { width: 100%; aspect-ratio: 3 / 2; border-radius: 28px; background-size: contain; background-position: center; background-repeat: no-repeat; background-color: var(--paper); box-shadow: 0 30px 50px -36px rgba(63,58,60,.22); }
+.sym-tile.has-img { width: 160px; height: 160px; border-radius: 36px; background-size: contain; background-position: center; background-repeat: no-repeat; font-size: 0; }
+.bench-box { background: var(--tan-soft); border-radius: 22px; padding: 22px 24px; margin-top: 18px; }
+.bench-box .block-label { color: var(--mint-deep); }
+.bench-box .block-title { font-size: 20px; }
+.bench-type { font-size: 15px; font-weight: 700; color: var(--ink-2); margin-top: 10px; }
+.bench-hook { font-size: 18px; font-weight: 900; color: var(--ink); margin-top: 14px; line-height: 1.6; text-wrap: balance; }
+.bench-list { margin: 0; padding-left: 1.2em; color: var(--muted); font-size: 14px; line-height: 1.75; }
+.bench-list li { margin-top: 2px; }
+.bench-box .disclaimer { margin-top: 16px; }
+.bench-box .bench-head { text-align: left; }
+.bench-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px; }
+@media (min-width: 720px) { .bench-grid { grid-template-columns: 1fr 1fr; gap: 18px; } }
+.bench-card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; min-width: 0; }
+.bench-card h4 { font-size: 16px; font-weight: 900; color: var(--ink); margin: 0; line-height: 1.4; }
+.bench-card .bench-sub { font-size: 12px; letter-spacing: .06em; color: var(--mint-deep); font-weight: 700; margin-top: 14px; }
+.bench-card .bench-list { margin: 6px 0 0; }
+.bench-card p { font-size: 14px; color: var(--ink-2); line-height: 1.75; margin-top: 6px; overflow-wrap: anywhere; }
+.bench-card p.bench-sub { margin-top: 14px; }
+.bench-box .disclaimer { margin-top: 16px; }
+.action-box { background: var(--surface-2); border-radius: 22px; padding: 22px 24px; margin-top: 16px; }
+.action-box small { display: block; font-size: 13px; color: var(--mint-deep); font-weight: 700; }
+.action-box p { font-size: 17px; font-weight: 700; color: var(--ink); margin-top: 8px; line-height: 1.6; }
+.next-box { margin-top: 18px; }
+.next-box h3 { font-size: 19px; }
+.next-box p { font-size: 15px; color: var(--muted); margin-top: 8px; line-height: 1.8; }
+.disclaimer { font-size: 12px; color: var(--muted); margin-top: 18px; }
+.divider { height: 1px; background: var(--line); margin: 26px 0; }
+.two { display: grid; gap: 12px; margin-top: 18px; }
+@media (min-width: 620px) { .two { grid-template-columns: 1fr 1fr; } }
+.mini { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 18px 20px; min-width: 0; }
+.mini.full { grid-column: 1 / -1; }
+.mini small { display: block; font-size: 12px; color: var(--mint-deep); font-weight: 700; letter-spacing: .04em; }
+.mini b { display: block; font-size: 17px; margin-top: 6px; overflow-wrap: anywhere; }
+.mini p { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.quote { font-size: 15px; color: var(--ink-2); margin-top: 6px; overflow-wrap: anywhere; }
+.dark-card { background: #6b6064; color: #fff; border-radius: 26px; padding: 26px 24px; margin-top: 18px; }
+.dark-card .block-label { color: var(--mint); }
+.dark-card h3 { font-size: 26px; margin-top: 8px; }
+.dark-card p { color: #e6dfe2; font-size: 14px; margin-top: 10px; }
+.dark-card .price-tag { margin-top: 16px; font-size: 28px; font-weight: 900; color: #fff; line-height: 1.2; }
+.dark-card .price-tag span { font-size: 14px; font-weight: 500; color: #e6dfe2; margin-left: 6px; }
+.dark-card .price-note { font-size: 12px; color: #c4bbc0; margin-top: 10px; }
+.dark-card .btn { margin-top: 20px; }
+.dark-card .field label { color: #e6dfe2; }
+.consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: #e6dfe2; margin-top: 14px; }
+.consent input { width: 18px; height: 18px; margin-top: 4px; flex: none; padding: 0; }
+.status { font-size: 13px; margin-top: 10px; min-height: 1.5em; color: #e6dfe2; }
+.mini-section { margin-top: 26px; }
+.mini-title { font-size: 18px; }
+.ticks { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 10px; }
+.ticks li { padding-left: 30px; position: relative; font-size: 15px; color: var(--ink-2); }
+.ticks li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--mint-deep); font-weight: 700; font-size: 17px; }
+.mini-text { margin-top: 20px; font-size: 14px; color: var(--ink-2); }
+.tier-wrap { overflow-x: auto; margin-top: 16px; }
+.tiers { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 420px; }
+.tiers th, .tiers td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.tiers th { color: var(--muted); font-weight: 500; }
+.tiers td { color: var(--ink); }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 26px; }
+.share-msg { text-align: center; }
+
+.back-row { margin-top: 18px; }
+.back-row .btn { width: auto; padding: 10px 18px; font-size: 14px; }
+.field .err { font-size: 12px; color: #ffd6df; margin: 2px 0 0; }
+.field input.invalid { border-color: #e88aa3; }
+@media (max-width: 520px) {
+  .hero-title { font-size: 34px; }
+  .persona-name { font-size: 32px; }
+  .qtitle { font-size: 20px; }
+  .top-meta em { display: none; }
+  .nav { grid-template-columns: 1fr 1fr; }
+  .nav .btn { min-width: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .progress > i { transition: none; } }
+</style>
+
+<main>
+  <header class="top">
+    <div class="brand"><div class="brand-mark" aria-hidden="true">✳</div><span>職人品牌潛力研究所</span></div>
+    <div class="top-meta">THE MAKER IDENTITY LAB<em>BY 堯智科技</em></div>
+  </header>
+
+  <!-- Home -->
+  <section id="home">
+    <div class="home">
+      <div>
+        <span class="eyebrow">13 QUESTIONS · ONE UNIQUE YOU</span>
+        <h1 class="hero-title">你的專業，<br><em>天生適合</em><br>怎麼被看見？</h1>
+        <p class="lead">不是每個職人都要變網紅。用 <strong>13 道題目</strong>，找出你的職人特質，探索適合你的品牌風格與商業方向。</p>
+        <div class="chips">
+          <span class="chip">約 3–5 分鐘</span>
+          <span class="chip">6 種職人人格</span>
+          <span class="chip">免費分析</span>
+        </div>
+        <div class="cta-wrap">
+          <button class="btn" id="start" type="button">開始探索 →</button>
+          <p class="note">每題選一個最接近你的答案，沒有對錯。</p>
+        </div>
+      </div>
+      <div>
+        <div class="preview" aria-label="六種職人人格">
+          <div class="pv"><span class="g img" data-cell="A" aria-hidden="true"></span><b>專業守護者</b><p>你的專業，就是別人的安心感。</p></div>
+          <div class="pv"><span class="g img" data-cell="B" aria-hidden="true"></span><b>知識魔法師</b><p>你把別人聽不懂的事，變成人人都懂。</p></div>
+          <div class="pv"><span class="g img" data-cell="C" aria-hidden="true"></span><b>共鳴故事家</b><p>你的故事與理解力，是建立連結的關鍵。</p></div>
+          <div class="pv"><span class="g img" data-cell="D" aria-hidden="true"></span><b>魅力發光體</b><p>不只是專業，你本人就有吸引力。</p></div>
+          <div class="pv"><span class="g img" data-cell="E" aria-hidden="true"></span><b>實戰煉金師</b><p>與其說自己多厲害，不如直接做給大家看。</p></div>
+          <div class="pv"><span class="g img" data-cell="F" aria-hidden="true"></span><b>價值創造家</b><p>你能把專業轉換成看得見、買得到的價值。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz -->
+  <section id="quiz" class="narrow hidden-screen">
+    <div class="back-row"><button class="btn ghost" id="backHomeQ" type="button">← 回首頁</button></div>
+    <div class="progress-row"><span id="qcount">1 / 13</span><span>職人品牌潛力探索</span></div>
+    <div class="progress" aria-hidden="true"><i id="qbar"></i></div>
+    <div class="card">
+      <p class="part" id="qpart"></p>
+      <h2 class="qtitle" id="qtext"></h2>
+      <p class="qhint" id="qhint"></p>
+      <div class="opts" id="opts" role="group"></div>
+      <div class="field" id="textWrap" hidden>
+        <label for="openAns">你的回答</label>
+        <textarea id="openAns" maxlength="200" placeholder="例如：我想讓更多人知道……"></textarea>
+      </div>
+      <div class="nav">
+        <button class="btn ghost" id="prev" type="button">← 上一題</button>
+        <button class="btn" id="next" type="button" disabled>下一題 →</button>
+      </div>
+    </div>
+    <p class="qfoot">每題選一個最接近你的答案，不會判斷對錯。</p>
+  </section>
+
+  <!-- Result -->
+  <section id="result" class="narrow hidden-screen">
+    <div class="result-head">
+      <span class="eyebrow">YOUR MAKER IDENTITY · RESULT</span>
+      <div class="sym-tile" id="rSym" aria-hidden="true"></div>
+      <h2 class="persona-name" id="rName"></h2>
+      <p class="persona-line" id="rLine"></p>
+      <p class="persona-sub" id="rSub"></p>
+      <div class="desc-box">
+        <small>人格解說</small>
+        <p id="rDescP"></p>
+        <dl class="desc-list">
+          <dt>你的優勢</dt><dd id="rDescS"></dd>
+          <dt>需要留意</dt><dd id="rDescW"></dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" type="button" data-tab="persona" aria-selected="true">職人人格</button>
+      <button class="tab" role="tab" type="button" data-tab="consult" aria-selected="false">顧問初診</button>
+    </div>
+
+    <!-- Persona tab -->
+    <div id="tab-persona" class="card">
+      <span class="block-label">YOUR GROWTH OPPORTUNITY</span>
+      <h3 class="block-title big">把專業，變成被看見的價值</h3>
+      <div class="two">
+        <div class="mini"><small>你想發展的收入方向</small><b id="rIncome"></b><p>這是你最有意願嘗試的方向，並非市場可行性保證。</p></div>
+        <div class="mini"><small>你最想達成的品牌目標</small><b id="rGoal"></b><p>目標清楚，之後的內容與服務會更有方向。</p></div>
+        <div class="mini"><small>目前最值得突破的關卡</small><b id="rBarrier"></b><p id="rBarrierTip"></p></div>
+        <div class="mini"><small>你最在乎的價值</small><b id="rValue"></b><p id="rValueSub"></p></div>
+        <div class="mini full" id="rOpenWrap" hidden><small>你想解決的問題</small><p class="quote" id="rOpen"></p></div>
+      </div>
+      <div class="bench-box">
+        <div class="bench-head">
+          <span class="block-label">SAME-FIELD BENCHMARK</span>
+          <h3 class="block-title">同領域的職人標竿</h3>
+          <p class="bench-type" id="bType"></p>
+          <p class="bench-hook" id="bHook"></p>
+        </div>
+        <div class="bench-grid">
+          <div class="bench-card">
+            <h4>🎯 標竿的核心特質與策略</h4>
+            <p class="bench-sub">常見的代表特質</p>
+            <ul class="bench-list" id="bTraits"></ul>
+            <p class="bench-sub">常見的品牌路徑</p>
+            <ul class="bench-list" id="bPath"></ul>
+          </div>
+          <div class="bench-card">
+            <h4>💡 關鍵差距與經營留意</h4>
+            <p class="bench-sub">經營時要留意</p>
+            <p id="bNote"></p>
+            <p class="bench-sub">你的現況卡點／顧問對接</p>
+            <p id="bGap"></p>
+          </div>
+        </div>
+        <p class="disclaimer">這是依領域整理的初步分析，描述的是常見的標竿型態，不是對任何特定個人的評價。</p>
+      </div>
+      <div class="action-box"><small>你的第一個品牌行動</small><p id="rAction"></p></div>
+      <div class="divider"></div>
+      <span class="block-label">YOUR BRAND DNA</span>
+      <h3 class="block-title">你的職人天賦分布</h3>
+      <div class="bars" id="rBars"></div>
+      <p class="disclaimer">這是你回答形成的品牌偏好分布，依各人格的可得分正規化計算，不代表能力高低或人格診斷。</p>
+    </div>
+
+    <!-- Consult tab -->
+    <div id="tab-consult" class="card" hidden>
+      <span class="block-label">FROM POTENTIAL TO ACTION</span>
+      <h3 class="block-title">知道自己適合什麼，再決定怎麼開始。</h3>
+      <p style="margin-top:10px;color:var(--muted);font-size:14px">內容風格只能幫助你被認識。要產生實際收入，還需要驗證目標客群、客戶需求、服務方案與定價。接下來，讓顧問協助你釐清：要吸引哪種客戶？哪些服務值得優先發展？怎麼建立可執行的第一步？</p>
+      <div class="dark-card">
+        <span class="block-label">堯智科技 · FIRST CONSULTATION</span>
+        <h3>職人品牌變現初診</h3>
+        <p>30–45 分鐘一對一初步分析：品牌定位、潛在客群、變現方向，以及最優先改善的經營問題。</p>
+        <p class="price-tag">NT$ 5,000<span>／ 一次 30–45 分鐘</span></p>
+        <p class="price-note">正式預約方式請依堯智公告為準。</p>
+        <button class="btn mint" id="toggleBook" type="button" aria-expanded="false" aria-controls="bookForm">了解初診與預約方式 ↗</button>
+        <form id="bookForm" hidden novalidate style="margin-top:18px">
+          <div class="field"><label for="fName">姓名</label><input id="fName" autocomplete="name"></div>
+          <div class="field"><label for="fEmail">電子信箱（必填）</label><input id="fEmail" type="email" inputmode="email" autocomplete="email" maxlength="120" placeholder="name@example.com"><p class="err" id="eEmail" hidden></p></div>
+          <div class="field"><label for="fEmail2">再次輸入電子信箱（必填）</label><input id="fEmail2" type="email" inputmode="email" autocomplete="off" maxlength="120" placeholder="請再輸入一次，避免打錯"><p class="err" id="eEmail2" hidden></p></div>
+          <div class="field"><label for="fPhone">手機號碼（選填）</label><input id="fPhone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="09xx-xxx-xxx"><p class="err" id="ePhone" hidden></p></div>
+          <div class="field"><label for="fField">你的專業領域</label>
+            <select id="fField">
+              <option value="">請選擇</option>
+              <option>醫療與健康照護（醫師、醫療專業人員等）</option>
+              <option>法律與專業顧問（律師、法律顧問等）</option>
+              <option>美妝與造型（美容、美甲、彩妝、髮型等）</option>
+              <option>運動與健身（健身教練、運動指導等）</option>
+              <option>財經與商業（財經分析、財務規劃、商業顧問等）</option>
+              <option>命理與身心靈（命理、占星、塔羅等）</option>
+              <option>教育與知識分享（語言教學、心理學、知識型創作等）</option>
+              <option>其他專業領域</option>
+            </select>
+          </div>
+          <div class="field"><label for="needDesc">需求說明（選填）</label>
+            <textarea id="needDesc" maxlength="500" placeholder="例如：目前最想解決的問題、希望顧問協助的方向、已經嘗試過什麼、期望的時程等"></textarea>
+            <p class="note" style="color:#e9dfe3">最多 500 字。說明越具體，初診越能切中重點。</p>
+          </div>
+          <label class="consent"><input type="checkbox" id="fConsent">
+            <span>我同意堯智科技為了安排顧問初診、寄送分析結果，蒐集上述資料（含測驗結果），並可於初診及相關服務範圍內聯絡我。資料保存期間及停止聯絡方式，依正式條款為準。</span></label>
+          <div style="margin-top:16px"><button class="btn mint" type="submit">預約職人品牌變現初診</button></div>
+          <p class="status" id="formMsg" role="status"></p>
+        </form>
+      </div>
+      <div class="mini-section">
+        <h3 class="mini-title">一次初診，你可以得到：</h3>
+        <ul class="ticks">
+          <li>30–45 分鐘顧問一對一診斷</li>
+          <li>解析個人品牌優勢與潛在客群</li>
+          <li>討論最適合的初步變現方向</li>
+          <li>找出現階段最值得優先改善的問題</li>
+          <li>獲得一頁式品牌經營行動摘要</li>
+        </ul>
+        <p class="mini-text"><strong>這次不是要你立刻變成網紅。</strong> 而是由顧問陪你判斷：你的技術應該被誰看見？適合怎麼經營？最可能從哪裡開始創造商業價值？</p>
+        <div class="tier-wrap">
+          <table class="tiers">
+            <thead><tr><th>階段</th><th>服務</th><th>主要價值</th></tr></thead>
+            <tbody>
+              <tr><td>免費</td><td>職人天賦探索</td><td>認識優勢、建立興趣</td></tr>
+              <tr><td>首次付費</td><td>職人品牌變現初診</td><td>釐清機會、獲得初步行動方向</td></tr>
+              <tr><td>進階付費</td><td>品牌變現策略與顧問合作</td><td>深度市場分析、策略規劃、執行與優化</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="note">初診可提供初步行動摘要；完整市場研究與執行計畫屬後續合作範圍。</p>
+    </div>
+
+    <div class="actions">
+      <button class="btn ghost" id="copyResult" type="button">複製我的結果</button>
+      <button class="btn ghost" id="again" type="button">↻ 再測一次</button>
+    </div>
+    <p class="note share-msg" id="shareMsg" role="status"></p>
+    <div class="actions"><button class="btn ghost" id="backHomeR" type="button">← 回首頁</button></div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var TYPES = {
+    A: { name: "專業守護者", sym: "✦", line: "你的專業，就是別人的安心感。",
+         action: "把你最常被問的三個問題整理成一篇公開的觀點文。" },
+    B: { name: "知識魔法師", sym: "▤", line: "你把別人聽不懂的事，變成人人都懂。",
+         action: "選一個固定單元（例如每週一題），用同一種格式講解。" },
+    C: { name: "共鳴故事家", sym: "♡", line: "你的故事與理解力，是建立連結的關鍵。",
+         action: "寫下一個你常遇到的困擾，從卡住到解決的過程，用故事當開場。" },
+    D: { name: "魅力發光體", sym: "✷", line: "不只是專業，你本人就有吸引力。",
+         action: "固定一個個人風格元素（口頭禪、開場或版型），讓人一眼認出是你。" },
+    E: { name: "實戰煉金師", sym: "⚒", line: "與其說自己多厲害，不如直接做給大家看。",
+         action: "下一件作品完成時，記錄過程並留下一段決策說明。" },
+    F: { name: "價值創造家", sym: "◇", line: "你能把專業轉換成看得見、買得到的價值。",
+         action: "把一項服務整理成「問題、做法、結果」三句話。" }
+  };
+
+  // Longer explanation per persona, shown on the result page.
+  var DESC = {
+    A: {
+      p: "你在別人心中的位置，往往是「遇到難題時最想先問的人」。你的判斷力經得起推敲，客戶要的不只是答案，更是把事情交給你之後能安心的感覺。",
+      s: "判斷清楚、重點抓得準，能讓人在短時間內建立信任。",
+      w: "容易把內容講得太完整、太專業，反而讓初次接觸的人不敢開口。"
+    },
+    B: {
+      p: "你擅長把複雜的東西拆開、排好、講明白。人們喜歡跟你學，是因為每次都能帶走一個可以立刻用上的東西。你的專業不只存在於你的腦中，還能被整理成別人看得懂的內容。",
+      s: "表達有條理，能讓陌生人快速進入狀況，也容易累積固定的追蹤者。",
+      w: "容易想把所有細節都講完，內容一多就失去焦點。每次只聚焦一個問題，會更容易被記住。"
+    },
+    C: {
+      p: "你能聽見別人沒說出口的部分。當你講自己或客戶的故事時，人們會覺得「這說的就是我」，因此願意停下來，也更願意相信你。你的影響力來自理解，而不只是知識。",
+      s: "同理心強，能讓人產生情感連結，進而建立長期關係與口碑。",
+      w: "分享得太私人或投入太多情緒時，可能讓自己疲累，也讓讀者難以聚焦在你能提供的價值上。故事要服務於專業，而不是取代專業。"
+    },
+    D: {
+      p: "你的吸引力不只來自專業，而是來自「你這個人」。你的語氣、表情、節奏或審美，會讓人在一堆相似的內容中一眼認出你，並願意多看一眼。這種記憶點是許多職人最難培養、卻最有價值的資產。人們可能先因為喜歡你而靠近，再因為你的專業而留下。",
+      s: "辨識度高，容易在社群與人際間形成口碑；喜歡你的人會主動幫你傳播。",
+      w: "若只依賴個人魅力，內容容易流於話題性，難以累積實際的專業信任。建議讓風格與專業判斷綁在一起，讓人因為你的風格停下來，也因為你的內容信任你。"
+    },
+    E: {
+      p: "你相信成果比宣稱更有說服力。你習慣動手、實驗、修正，並且願意把過程留下來。對客戶來說，你最大的價值是「看得見你怎麼做」，這能大幅降低他們對陌生專業者的猶豫。",
+      s: "作品與過程有說服力，能用實例回答「你到底行不行」的疑問。",
+      w: "常常把時間花在做事上，容易忘了記錄與分享，讓好的經驗沒有被看見。每完成一件事，留下三張照片與一段說明就很有價值。"
+    },
+    F: {
+      p: "你最在意的是專業能否變成別人願意付費的東西。你擅長思考「客戶真正要解決什麼」，並把服務設計成清楚、可購買的方案。你的思維能讓專業從抽象的能力，變成具體的選擇。",
+      s: "商業思維清楚，能把專業轉換成具體方案與價格，也較容易找到穩定的收入來源。",
+      w: "容易急著把事情商品化。若還沒有足夠的信任與案例，客戶可能覺得距離遙遠，建議先用小型方案累積回饋，再逐步擴大。"
+    }
+  };
+  // Preliminary same-field benchmark per Q1 answer (index = field). Describes common
+  // benchmark patterns in each field, not any specific person.
+  var BENCH = [
+    { type: "「把專業轉成可信衛教」的醫療工作者",
+      hook: "病人最常問的三個問題，你的答案有人看見嗎？",
+      traits: ["衛教內容正確、可查證", "用真實情境回答常見疑慮", "重視隱私與專業界線"],
+      path: ["固定主題的衛教短文或短影片", "門診常見問題的整理與回覆", "清楚標示非個別診斷的說明"],
+      note: "醫療內容受法規與廣告規範限制，發布前須確認執業場所與相關規定。" },
+    { type: "「把法條翻成生活語言」的法律人",
+      hook: "你以為的權利，法律上真的是這樣嗎？",
+      traits: ["用案例拆解權利與義務", "清楚說明條件與界線", "專業判斷有依據"],
+      path: ["常見法律問題的系列解析", "去識別化的真實案例", "清楚的諮詢流程說明"],
+      note: "避免針對個案做出結果承諾，並留意律師廣告與執業規範。" },
+    { type: "「以前後變化與過程說服人」的造型師",
+      hook: "同一張臉，為什麼換個方法就完全不同？",
+      traits: ["作品與步驟清楚", "依個人條件客製化", "風格一致、辨識度高"],
+      path: ["前後對照與步驟拆解", "固定主題的系列作品", "清楚的預約與諮詢流程"],
+      note: "使用客戶照片前須取得同意，避免誇大效果。" },
+    { type: "「用可執行的小步驟改變習慣」的教練",
+      hook: "每天十分鐘，三十天後你會看到什麼不一樣？",
+      traits: ["循序漸進、重視安全", "用紀錄追蹤進度", "目標具體、可衡量"],
+      path: ["每週一個可以立即做的動作", "訓練紀錄與階段成果分享", "客戶的階段性目標設定"],
+      note: "避免速成或醫療式的承諾，個人狀況不明時建議先諮詢醫師。" },
+    { type: "「用案例與框架講清楚決策」的顧問",
+      hook: "同樣的數字，為什麼有人賺錢、有人踩雷？",
+      traits: ["邏輯與數據清楚", "重視風險揭露", "框架可重複使用"],
+      path: ["固定的市場觀察", "決策框架的拆解說明", "去識別化的案例復盤"],
+      note: "避免提供個人化投資建議或收益保證，並需清楚揭露風險。" },
+    { type: "「以陪伴與反思為核心」的諮詢者",
+      hook: "不是要你相信什麼，而是看見你正在卡住的地方。",
+      traits: ["尊重當事人的主體性", "語言溫和、不急於斷言", "重視反思與提問"],
+      path: ["主題式的生活反思文", "以提問引導思考的內容", "清楚的服務界線說明"],
+      note: "避免對健康、財務或重大決定做出斷言，並說明內容的參考性質。" },
+    { type: "「把知識拆成可立即應用的小單元」的講師",
+      hook: "學了很多，為什麼還是用不上？",
+      traits: ["結構清楚、循序漸進", "互動多、重視回饋", "從學習者的處境出發"],
+      path: ["固定系列的小單元內容", "學習者的實際回饋與案例", "免費入門內容搭配付費深化"],
+      note: "避免誇大學習成效；引用研究時請標示來源。" },
+    { type: "「把經驗變成別人可複製的方法」的專業人士",
+      hook: "你的經驗，能被別人照著做嗎？",
+      traits: ["有清楚的方法論", "重視實際案例", "能說明適用與不適用的情境"],
+      path: ["方法論的拆解與步驟化", "實際案例的復盤", "服務流程的清楚說明"],
+      note: "分享方法時請說明適用條件，避免把個案經驗當成普遍結果。" }
+  ];
+  // Google Apps Script web app URL for consult submissions. Empty = not connected yet.
+  var SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbx_cym_c2-dNsSQGWYJt5qXcGgGDm5eChKmHsi_Li7ij79WXrHtxdHem4JC_5RQkGNB9A/exec";
+  var IMG = {A: "images/A.png", B: "images/B.png", C: "images/C.png", D: "images/D.png", E: "images/E.png", F: "images/F.png"};
+  // Gap and consultation hook per field (index matches BENCH).
+  var GAP = [
+    "衛教內容要同時兼顧正確、可查證與法規邊界，自己摸索容易踩線或流於零散。初診可以一起檢視你目前的內容與界線，排出最適合先落地的第一步。",
+    "法律內容的準確與界線最難自行拿捏，常見的困難是題材很多卻不知道先做哪一個。初診可以協助你找出最能帶來諮詢的主題，並訂出合規的表達方式。",
+    "作品好不一定能被看見，常卡在前後對照與步驟怎麼整理。初診可以一起規劃作品的呈現順序，並確認客製化服務的流程與收費。",
+    "健身內容容易被當成速成承諾，安全界線也需要說清楚。初診可以協助你拆出可執行的系列內容，並建立不誇大的承諾方式。",
+    "財經內容最容易碰到投資建議與廣告規範的界線，也需要清楚的風險揭露。初診可以協助你確認可提供的內容範圍，以及不宜承諾的部分。",
+    "命理與身心靈內容容易被理解為保證或診斷，需要清楚定位。初診可以一起釐清你的服務定位與說明方式，讓內容有參考價值又不過度承諾。",
+    "知識內容多，但不一定能轉成有結構的課程或付費內容。初診可以協助你找出最適合先做的免費入門內容，再規劃後續的付費路徑。",
+    "你的專業有獨特的經驗，但還沒有被整理成別人看得懂的方法。初診可以一起找出最適合的標竿方向，並決定第一步該怎麼做。"
+  ];
+  var ORDER = ["A", "B", "C", "D", "E", "F"];
+  var MOTIVE_LABEL = {
+    A: "專業被認可與信任", B: "成功分享知識、看見改變", C: "與人建立深度連結",
+    D: "被看見與認可", E: "自由安排時間", F: "穩定的收入"
+  };
+  var VALUE_LABEL = {
+    independent: "獨立做自己的判斷", helping: "能幫助別人順利解決問題", achieve: "能獲得成就感",
+    stable: "穩定與安全感", stimulate: "刺激與新體驗", tradition: "維持傳統與信念"
+  };
+  var PAIN_TIPS = {
+    "怕被質疑專業": "把你的判斷依據寫出來，讓質疑變成可以對話的內容，而不是只能防守。",
+    "內容深淺": "先鎖定一個你最熟的小主題，從最常被問的問題開始，深度可以一篇一篇加。",
+    "不想露出自己": "不一定要拍片，可以先用文字或作品過程呈現，保留你舒服的節奏。",
+    "缺少記憶點": "找一個固定的開場、用語或版型，讓人一眼認出是你，風格會慢慢累積。",
+    "時間不夠": "每週固定一小時，只做一種內容形式，先求穩定，再考慮擴大。",
+    "找不到客戶或定價": "先把你最常被問的問題整理成一篇文章；定價則列出每次服務的時間與成本，用小型方案試價。"
+  };
+
+  // 13 questions.
+  // kind: single (choose 1) | rank2 (choose 2, in order: first = 2 pts, second = 1 pt when scored)
+  // text: optional open answer.
+  // Option second item = persona code (A–F), a non-persona key, or "" for none.
+  // noScore: question does not contribute to persona scores.
+  var QUESTIONS = [
+    { part: "PART 01 · YOUR FIELD", kind: "single", noScore: true, q: "你的專業領域是什麼？", o: [
+      ["醫療與健康照護（醫師、醫療專業人員等）", ""], ["法律與專業顧問（律師、法律顧問等）", ""],
+      ["美妝與造型（美容、美甲、彩妝、髮型等）", ""], ["運動與健身（健身教練、運動指導等）", ""],
+      ["財經與商業（財經分析、財務規劃、商業顧問等）", ""], ["命理與身心靈（命理、占星、塔羅等）", ""],
+      ["教育與知識分享（語言教學、心理學、知識型創作等）", ""], ["其他專業領域", ""] ] },
+    { part: "PART 01 · YOUR FIELD", kind: "single", q: "如果可以讓更多人認識你的專業，哪一種方式你覺得最自在？", o: [
+      ["寫文章或分享文字觀點", "B"], ["一對一聊天、深入交流", "C"],
+      ["拍影片，直接對鏡頭說明", "D"], ["舉辦講座或現場教學", "A"],
+      ["用圖片、圖表或作品說話", "E"], ["還不知道哪種方式適合自己", ""] ] },
+    { part: "PART 01 · YOUR FIELD", kind: "single", q: "如果是週末的一個下午，你最可能會怎麼度過？", o: [
+      ["找朋友聊天、吃飯，或參加聚會", "C"], ["窩在家裡看書、研究感興趣的主題", "B"],
+      ["出門走走、探索新地方或嘗試新活動", "D"], ["動手做點什麼，例如料理、手作、運動或整理空間", "E"],
+      ["安靜獨處，聽音樂或看一部電影", "A"], ["規劃接下來的計畫，或處理待辦的事", "F"] ] },
+    { part: "PART 02 · YOUR GOALS", kind: "single", q: "透過經營個人品牌，你最想達成什麼？", o: [
+      ["讓更多人認識我，提升知名度與影響力", "D"], ["建立專業形象，讓別人更信任我", "A"],
+      ["吸引更多理想客戶，增加合作機會", "F"], ["提高專業價值，創造更多收入來源", "F"],
+      ["分享自己的知識與經驗，幫助更多人", "B"], ["還不太確定，想先找到適合自己的方向", ""] ] },
+    { part: "PART 02 · YOUR GOALS", kind: "single", q: "以下能力或特質的敘述，哪一項與你最相符？", o: [
+      ["一針見血，直接解決問題", "A"], ["把難懂的事講到人人懂", "B"],
+      ["聽懂別人沒說出口的心事", "C"], ["一開口，大家就想繼續聽", "D"],
+      ["親手做出別人看得到的成果", "E"], ["把點子變成別人願意買單的東西", "F"] ] },
+    { part: "PART 02 · YOUR GOALS", kind: "single", q: "客戶通常從哪個管道認識你？", o: [
+      ["朋友、舊客戶或同業主動推薦", "A"], ["在社群上常互動、留言討論的人", "C"],
+      ["被我的個人風格或鮮明形象吸引", "D"], ["看過我發布過的文章、作品或實作案例", "E"],
+      ["還在尋找客戶中，目前正在起步階段", ""] ] },
+    { part: "PART 02 · YOUR GOALS", kind: "single", q: "當客戶願意為你的專業服務付費時，你最想帶給他們什麼樣的價值？", o: [
+      ["可以隨時找我討論與諮詢", "A"], ["一套有條理的知識體系或課程", "B"],
+      ["一段能產生共鳴的陪跑與體驗", "C"], ["一個具備高辨識度的個人形象", "D"],
+      ["看得到過程與最終呈現的作品", "E"], ["規格清楚、價格透明的完整解決方案", "F"] ] },
+    { part: "PART 03 · YOUR GROWTH", kind: "single", q: "你最想嘗試哪種方式提升知名度或帶來額外收入？", o: [
+      ["顧問諮詢或專業服務", "A"], ["知識課程或付費內容", "B"],
+      ["社群陪伴或工作坊", "C"], ["品牌方邀約合作與代言", "D"],
+      ["建立自有商品或套組", "F"] ] },
+    { part: "PART 03 · YOUR GROWTH", kind: "single", q: "你每週能分配多少時間在經營個人品牌上？", o: [
+      ["1 小時以內，偶爾分享", ""], ["2–3 小時，固定更新", ""],
+      ["3–5 小時，慢慢累積", ""], ["5 小時以上，持續經營", ""],
+      ["配合專案或商品節奏，有活動或案子時再安排", "E"] ] },
+    { part: "PART 04 · YOUR MOTIVE", kind: "rank2", q: "對你來說哪兩件事情能讓你有動力持續經營？", hint: "請依序點選，最重要的放第一個，請選 2 個。", o: [
+      ["專業被認可、被信任", "A"], ["穩定的收入", "F"], ["與人建立深度連結", "C"],
+      ["被更多人看見與認可", "D"], ["自由安排時間", "E"],
+      ["成功分享知識，看見它帶給別人的改變", "B"] ] },
+    { part: "PART 05 · YOUR VALUES", kind: "rank2", noScore: true, q: "以下哪兩件事對你而言是重要的？", hint: "請依序點選，最重要的放第一個，請選 2 個。", o: [
+      ["獨立做自己的判斷", "independent"], ["能幫助別人順利解決問題", "helping"],
+      ["能獲得成就感", "achieve"], ["穩定與安全感", "stable"],
+      ["刺激與新體驗", "stimulate"], ["維持傳統與信念", "tradition"] ] },
+    { part: "PART 05 · YOUR VALUES", kind: "single", noScore: true, q: "你在經營個人品牌時，最擔心或最常卡在什麼地方？", o: [
+      ["怕說錯話、被質疑專業", "怕被質疑專業"], ["不知道內容該講多深，怕太淺或太雜", "內容深淺"],
+      ["怕太私人，不想露出自己", "不想露出自己"], ["缺少記憶點與個人風格", "缺少記憶點"],
+      ["時間不夠，難以固定產出內容", "時間不夠"], ["找不到客戶，或不知道怎麼定價、做了沒人買單", "找不到客戶或定價"] ] },
+    { part: "PART 05 · YOUR VALUES", kind: "text", noScore: true, q: "用一句話說說你目前最想解決的問題", hint: "開放式，可以留白直接看結果。" }
+  ];
+  var FIELD_IDX = 0, GOAL_IDX = 3, MOTIVE_IDX = 9, VALUE_IDX = 10, PAIN_IDX = 11, TEXT_IDX = 12, INCOME_IDX = 7;
+  var LAST = QUESTIONS.length - 1;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var answers = [];
+  var idx = 0;
+  var resultText = "";
+  var lastPersona = "";
+
+  function show(name) {
+    ["home", "quiz", "result"].forEach(function (s) { $(s).classList.toggle("hidden-screen", s !== name); });
+    window.scrollTo(0, 0);
+  }
+
+  function isAnswered(i) {
+    var q = QUESTIONS[i], a = answers[i];
+    if (q.kind === "single") return a !== undefined;
+    if (q.kind === "text") return true;
+    return Array.isArray(a) && a.length === 2;
+  }
+
+  function saveText() {
+    if (QUESTIONS[idx].kind === "text") answers[idx] = $("openAns").value.trim();
+  }
+
+  function renderQuestion() {
+    var q = QUESTIONS[idx];
+    $("qpart").textContent = q.part;
+    $("qcount").textContent = (idx + 1) + " / " + QUESTIONS.length;
+    $("qbar").style.width = (idx / QUESTIONS.length * 100) + "%";
+    $("qtext").textContent = q.q;
+
+    var box = $("opts");
+    box.innerHTML = "";
+    var isText = q.kind === "text";
+    $("textWrap").hidden = !isText;
+    box.hidden = isText;
+
+    if (isText) {
+      $("qhint").textContent = q.hint || "";
+      $("openAns").value = typeof answers[idx] === "string" ? answers[idx] : "";
+    } else if (q.kind === "rank2") {
+      var picked = Array.isArray(answers[idx]) ? answers[idx].length : 0;
+      $("qhint").textContent = q.hint + "（已選 " + picked + " / 2）";
+    } else {
+      $("qhint").textContent = q.hint || "";
+    }
+
+    if (!isText) {
+      var current = answers[idx];
+      q.o.forEach(function (opt, i) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt";
+
+        var letter = document.createElement("span");
+        letter.className = "letter";
+        letter.textContent = String.fromCharCode(65 + i);
+
+        var text = document.createElement("span");
+        text.className = "text";
+        text.textContent = opt[0];
+
+        var radio = document.createElement("span");
+        radio.className = "radio";
+
+        b.appendChild(letter); b.appendChild(text); b.appendChild(radio);
+
+        var selected, pos = 0;
+        if (q.kind === "single") {
+          selected = current === i;
+          radio.textContent = selected ? "●" : "";
+        } else {
+          var arr = Array.isArray(current) ? current : [];
+          pos = arr.indexOf(i) + 1;
+          selected = pos > 0;
+          radio.textContent = selected ? String(pos) : "";
+        }
+        b.setAttribute("aria-pressed", selected ? "true" : "false");
+        if (q.kind === "rank2" && !selected && Array.isArray(current) && current.length >= 2) {
+          b.disabled = true;
+        }
+        b.addEventListener("click", function () {
+          if (q.kind === "single") {
+            answers[idx] = i;
+          } else {
+            var arr2 = Array.isArray(answers[idx]) ? answers[idx].slice() : [];
+            var at = arr2.indexOf(i);
+            if (at >= 0) arr2.splice(at, 1);
+            else if (arr2.length < 2) arr2.push(i);
+            answers[idx] = arr2;
+          }
+          renderQuestion();
+        });
+        box.appendChild(b);
+      });
+    }
+
+    $("prev").disabled = idx === 0;
+    $("next").disabled = !isAnswered(idx);
+    $("next").textContent = idx === LAST ? "看我的結果 →" : "下一題 →";
+  }
+
+  // Maximum obtainable points per persona, counting only scored questions.
+  // Single: 1 point per question (a persona counts once per question).
+  // Rank2: first pick 2 points, so a persona that appears as an option can reach 2.
+  function computeMax() {
+    var m = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
+    QUESTIONS.forEach(function (q) {
+      if (q.noScore) return;
+      var seen = {};
+      q.o.forEach(function (opt) {
+        var c = opt[1];
+        if (m[c] === undefined || seen[c]) return;
+        seen[c] = true;
+        m[c] += q.kind === "rank2" ? 2 : 1;
+      });
+    });
+    return m;
+  }
+
+  function tally() {
+    var t = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
+    QUESTIONS.forEach(function (q, qi) {
+      if (q.noScore) return;
+      var a = answers[qi];
+      if (q.kind === "single" && a !== undefined) {
+        var code = q.o[a][1];
+        if (t[code] !== undefined) t[code]++;
+      }
+      if (q.kind === "rank2" && Array.isArray(a) && a.length) {
+        if (t[q.o[a[0]][1]] !== undefined) t[q.o[a[0]][1]] += 2;
+        if (a[1] !== undefined && t[q.o[a[1]][1]] !== undefined) t[q.o[a[1]][1]] += 1;
+      }
+    });
+    return t;
+  }
+
+  function pickedLabel(qi) {
+    var a = answers[qi];
+    if (a === undefined) return "尚未選擇";
+    return QUESTIONS[qi].o[a][0];
+  }
+
+  function renderResult() {
+    var t = tally();
+    var mx = computeMax();
+    var pct = {};
+    ORDER.forEach(function (k) { pct[k] = mx[k] ? t[k] / mx[k] : 0; });
+
+    var maxPct = Math.max.apply(null, ORDER.map(function (k) { return pct[k]; }));
+    var top = ORDER.filter(function (k) { return Math.abs(pct[k] - maxPct) < 1e-9; });
+
+    // Tie-break: the first motive pick (Q10), if it is among the tied personas.
+    var motiveRank = answers[MOTIVE_IDX] || [];
+    var firstMotive = motiveRank.length ? QUESTIONS[MOTIVE_IDX].o[motiveRank[0]][1] : null;
+    if (top.length > 1 && firstMotive && top.indexOf(firstMotive) >= 0) {
+      top = [firstMotive];
+    }
+
+    var P, name, sym, line;
+    if (top.length === 1) {
+      P = TYPES[top[0]]; name = P.name; sym = P.sym; line = P.line;
+    } else {
+      name = top.slice(0, 2).map(function (k) { return TYPES[k].name; }).join("×") + " 混合型";
+      sym = top.slice(0, 2).map(function (k) { return TYPES[k].sym; }).join(" ");
+      line = "你同時具備多種職人特質，可以從其中一種開始，慢慢融合。";
+      P = TYPES[top[0]];
+    }
+
+    var symEl = $("rSym");
+    symEl.classList.add("has-img");
+    symEl.style.backgroundImage = "url(" + IMG[top[0]] + ")";
+    symEl.textContent = "";
+    $("rName").textContent = "你是「" + name + "」";
+    lastPersona = name;
+    $("rLine").textContent = line;
+
+    var motive = firstMotive ? MOTIVE_LABEL[firstMotive] : "尚未選擇";
+    $("rSub").textContent = "驅動你的力量：" + motive;
+
+    // Values (Q11): first pick is the main value, second is the secondary one.
+    var vals = answers[VALUE_IDX] || [];
+    var vKey = function (i) { return QUESTIONS[VALUE_IDX].o[i][1]; };
+    $("rValue").textContent = vals.length ? VALUE_LABEL[vKey(vals[0])] : "尚未選擇";
+    $("rValueSub").textContent = vals.length > 1 ? "次要價值：" + VALUE_LABEL[vKey(vals[1])] : "";
+
+    $("rIncome").textContent = pickedLabel(INCOME_IDX);
+    $("rGoal").textContent = pickedLabel(GOAL_IDX);
+
+    var painIdx = answers[PAIN_IDX];
+    var pain = painIdx !== undefined ? QUESTIONS[PAIN_IDX].o[painIdx][1] : null;
+    $("rBarrier").textContent = pain ? QUESTIONS[PAIN_IDX].o[painIdx][0] : "尚未選擇";
+    $("rBarrierTip").textContent = pain ? (PAIN_TIPS[pain] || "") : "";
+
+    var open = typeof answers[TEXT_IDX] === "string" ? answers[TEXT_IDX] : "";
+    $("rOpenWrap").hidden = !open;
+    $("rOpen").textContent = open;
+
+    var dd = DESC[top[0]];
+    $("rDescP").textContent = dd.p;
+    $("rDescS").textContent = dd.s;
+    $("rDescW").textContent = dd.w;
+
+    // Same-field benchmark, chosen by the Q1 field answer (defaults to "其他專業領域").
+    var fieldIdx = answers[FIELD_IDX] !== undefined ? answers[FIELD_IDX] : 7;
+    var bm = BENCH[fieldIdx];
+    $("bType").textContent = "你的領域常見的標竿：" + bm.type;
+    $("bHook").textContent = "「" + bm.hook + "」";
+    var fillList = function (id, items) {
+      var ul = $(id);
+      ul.innerHTML = "";
+      items.forEach(function (s) {
+        var li = document.createElement("li");
+        li.textContent = s;
+        ul.appendChild(li);
+      });
+    };
+    fillList("bTraits", bm.traits);
+    fillList("bPath", bm.path);
+    $("bNote").textContent = bm.note;
+    $("bGap").textContent = GAP[fieldIdx];
+
+    $("rAction").textContent = P.action;
+
+    var bars = $("rBars");
+    bars.innerHTML = "";
+    ORDER.slice().sort(function (a, b) { return pct[b] - pct[a]; }).slice(0, 3).forEach(function (k) {
+      var row = document.createElement("div");
+      row.className = "bar-row";
+
+      var label = document.createElement("span");
+      label.className = "bn";
+      var g = document.createElement("span");
+      g.className = "bg";
+      g.classList.add("img");
+      g.style.backgroundImage = "url(" + IMG[k] + ")";
+      var nm = document.createElement("span");
+      nm.textContent = TYPES[k].name;
+      label.appendChild(g); label.appendChild(nm);
+
+      var n = document.createElement("span");
+      n.className = "bc";
+      n.textContent = Math.round(pct[k] * 100) + "%（" + t[k] + " / " + mx[k] + " 分）";
+
+      var track = document.createElement("div");
+      track.className = "bar-track";
+      var fill = document.createElement("i");
+      fill.style.width = Math.round(pct[k] * 100) + "%";
+      track.appendChild(fill);
+
+      row.appendChild(label); row.appendChild(n); row.appendChild(track);
+      bars.appendChild(row);
+    });
+
+    resultText = "【職人品牌潛力研究所】\n我是「" + name + "」\n" + line +
+      "\n驅動力：" + motive +
+      "\n收入方向：" + pickedLabel(INCOME_IDX) +
+      "\n第一個品牌行動：" + P.action;
+
+    $("shareMsg").textContent = "";
+    selectTab("persona");
+    show("result");
+  }
+
+  function selectTab(name) {
+    document.querySelectorAll(".tab").forEach(function (t) {
+      t.setAttribute("aria-selected", t.getAttribute("data-tab") === name ? "true" : "false");
+    });
+    $("tab-persona").hidden = name !== "persona";
+    $("tab-consult").hidden = name !== "consult";
+  }
+
+  // Events
+  $("start").addEventListener("click", function () {
+    answers = []; idx = 0;
+    renderQuestion();
+    show("quiz");
+  });
+
+  $("prev").addEventListener("click", function () {
+    saveText();
+    if (idx > 0) { idx--; renderQuestion(); }
+  });
+
+  $("next").addEventListener("click", function () {
+    saveText();
+    if (idx < LAST) { idx++; renderQuestion(); }
+    else renderResult();
+  });
+
+  document.querySelectorAll(".tab").forEach(function (t) {
+    t.addEventListener("click", function () { selectTab(t.getAttribute("data-tab")); });
+  });
+
+  $("backHomeQ").addEventListener("click", function () { show("home"); });
+  $("backHomeR").addEventListener("click", function () { show("home"); });
+
+  $("again").addEventListener("click", function () {
+    answers = []; idx = 0;
+    show("home");
+  });
+
+  $("copyResult").addEventListener("click", function () {
+    var msg = $("shareMsg");
+    var fallback = function () { msg.textContent = "無法自動複製，請手動選取以下文字：" + resultText; };
+    try {
+      navigator.clipboard.writeText(resultText).then(function () {
+        msg.textContent = "已複製結果文字。";
+      }, fallback);
+    } catch (e) { fallback(); }
+  });
+
+  $("toggleBook").addEventListener("click", function () {
+    var form = $("bookForm");
+    var open = form.hidden;
+    form.hidden = !open;
+    this.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open && answers[FIELD_IDX] !== undefined) {
+      $("fField").value = QUESTIONS[FIELD_IDX].o[answers[FIELD_IDX]][0];
+    }
+  });
+
+  var EMAIL_RE = /^[A-Za-z0-9._%+\-]+@[A-Za-z0-9\-]+(\.[A-Za-z0-9\-]+)*\.[A-Za-z]{2,}$/;
+  var TW_MOBILE_RE = /^09\d{8}$/;
+
+  function setErr(inputId, errId, msg) {
+    var input = $(inputId), err = $(errId);
+    if (msg) {
+      err.textContent = msg; err.hidden = false; input.classList.add("invalid");
+      input.setAttribute("aria-invalid", "true");
+    } else {
+      err.textContent = ""; err.hidden = true; input.classList.remove("invalid");
+      input.removeAttribute("aria-invalid");
+    }
+    return !msg;
+  }
+
+  function validateEmail() {
+    var v = $("fEmail").value.trim();
+    if (!v) return setErr("fEmail", "eEmail", "請填寫電子信箱。");
+    if (v.length > 120 || !EMAIL_RE.test(v) || /\.\./.test(v)) return setErr("fEmail", "eEmail", "信箱格式不正確，請確認是否有漏字或多餘符號。");
+    return setErr("fEmail", "eEmail", "");
+  }
+
+  function validateEmailConfirm() {
+    var v = $("fEmail2").value.trim();
+    if (!v) return setErr("fEmail2", "eEmail2", "請再輸入一次電子信箱。");
+    if (v !== $("fEmail").value.trim()) return setErr("fEmail2", "eEmail2", "兩次輸入的信箱不一致，請再確認。");
+    return setErr("fEmail2", "eEmail2", "");
+  }
+
+  function validatePhone() {
+    var raw = $("fPhone").value.trim();
+    if (!raw) return setErr("fPhone", "ePhone", "");
+    var digits = raw.replace(/[\s\-]/g, "");
+    if (!TW_MOBILE_RE.test(digits)) return setErr("fPhone", "ePhone", "請填寫台灣手機號碼（09 開頭，共 10 碼），或留空。");
+    return setErr("fPhone", "ePhone", "");
+  }
+
+  $("fEmail").addEventListener("blur", validateEmail);
+  $("fEmail2").addEventListener("blur", validateEmailConfirm);
+  $("fPhone").addEventListener("blur", validatePhone);
+
+  $("bookForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var msg = $("formMsg");
+    msg.textContent = "";
+    var nameOk = !!$("fName").value.trim();
+    if (!nameOk) msg.textContent = "請填寫姓名。";
+    var ok = validateEmail() & validateEmailConfirm() & validatePhone();
+    if (!nameOk || !ok) {
+      if (!nameOk) $("fName").focus();
+      else if (!validateEmail()) $("fEmail").focus();
+      else if (!validateEmailConfirm()) $("fEmail2").focus();
+      else $("fPhone").focus();
+      if (!msg.textContent) msg.textContent = "請檢查標示的欄位。";
+      return;
+    }
+    if (!$("fConsent").checked) {
+      msg.textContent = "請先勾選同意條款，才能送出預約資料。";
+      return;
+    }
+    if (!SHEET_ENDPOINT) {
+      msg.textContent = "目前此頁面尚未連接預約系統，資料無法送出。請依堯智科技公告的方式聯繫預約。";
+      return;
+    }
+    var fieldVal = $("fField").value;
+    var payload = {
+      submitted_at: new Date().toISOString(),
+      name: $("fName").value.trim(),
+      email: $("fEmail").value.trim(),
+      phone: $("fPhone").value.trim(),
+      field: fieldVal,
+      need: $("needDesc").value.trim(),
+      persona: lastPersona,
+      result: resultText,
+      consent: true
+    };
+    var btn = e.submitter || this.querySelector("button[type=submit]");
+    if (btn) btn.disabled = true;
+    msg.textContent = "送出中，請稍候…";
+    // no-cors: the browser cannot read the response, so this only confirms the request was sent.
+    fetch(SHEET_ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    }).then(function () {
+      msg.textContent = "已收到您的預約申請，我們會盡快與您聯繫。";
+      $("bookForm").reset();
+    }).catch(function () {
+      msg.textContent = "送出失敗，請稍後再試。";
+    }).then(function () {
+      if (btn) btn.disabled = false;
+    });
+  });
+
+  document.querySelectorAll(".pv .g.img").forEach(function (el) {
+    var code = el.getAttribute("data-cell");
+    el.style.backgroundImage = "url(" + IMG[code] + ")";
+  });
+  show("home");
+})();
+</script>
