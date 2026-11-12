@@ -1058,7 +1058,7 @@ textarea { min-height: 120px; resize: vertical; }
       submitted_at: new Date().toISOString(),
       name: $("fName").value.trim(),
       email: $("fEmail").value.trim(),
-      phone: $("fPhone").value.trim(),
+      phone: $("fPhone").value.replace(/[\s\-]/g, ""),
       field: fieldVal,
       need: $("needDesc").value.trim(),
       persona: lastPersona,
